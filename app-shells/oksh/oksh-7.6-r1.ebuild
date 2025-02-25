@@ -8,6 +8,8 @@ LICENSE="public-domain ISC"
 SLOT="0"
 KEYWORDS="amd64"
 
+S="${WORKDIR}/${PVR}"
+
 DEPEND="
 	sys-libs/ncurses
 "
