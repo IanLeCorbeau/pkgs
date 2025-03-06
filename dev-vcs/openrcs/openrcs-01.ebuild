@@ -4,7 +4,7 @@ DESCRIPTION="Port of OpenBSD's RCS"
 HOMEPAGE="https://github.com/RagnarokOS/openrcs/"
 SRC_URI="https://github.com/RagnarokOS/openrcs/releases/download/${PVR}/${PF}.tgz"
 
-LICENSE="public-domain ISC BSD-3-Clause"
+LICENSE="public-domain ISC BSD"
 SLOT="0"
 KEYWORDS="amd64"
 
