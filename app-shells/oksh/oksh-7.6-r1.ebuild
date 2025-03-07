@@ -18,10 +18,3 @@ RDEPEND="
 	!app-shells/ksh
 	!app-shells/loksh
 "
-
-pkg_postinst() {
-	echo "/bin/ksh" >> /etc/shells
-	echo "/usr/bin/ksh" >> /etc/shells
-	elog "Added /bin/ksh and /usr/bin/ksh to /etc/shells..."
-	elog "Don't forget to change your default shell using chsh."
-}
