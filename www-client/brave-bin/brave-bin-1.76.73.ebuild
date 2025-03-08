@@ -20,12 +20,14 @@ SRC_URI="https://github.com/brave/brave-browser/releases/download/v${PV}/brave-b
 LICENSE="MPL-2.0"
 SLOT="0"
 KEYWORDS="amd64"
-IUSE="keyring cups"
+IUSE="keyring +libcups cups"
+REQUIRED_USE="^^ ( libcups cups )"
 
 # gconf is deprecated.
 # DEPEND="gnome-base/gconf:2"
 RDEPEND="
 	${DEPEND}
+	dev-libs/libpthread-stubs
 	x11-libs/libxcb
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
@@ -114,6 +116,16 @@ src_install() (
 	# install-xattr doesnt approve using domenu or doins from FILESDIR
 		cp "${FILESDIR}"/${PN}.desktop "${S}"
 		domenu "${S}"/${PN}.desktop
+
+	# install libcups.so.2 if libcups USE flag is enabled.
+	if use libcups; then
+		if [[ ! -f /usr/lib64/libcups.so.2 ]]; then
+			insinto /usr/lib64/
+				dolib.so "${FILESDIR}/libcups.so.2"
+
+			dosym /usr/lib64/libcups.so.2 /usr/lib64/libcups.so
+		fi
+	fi
 )
 
 pkg_postinst() {
