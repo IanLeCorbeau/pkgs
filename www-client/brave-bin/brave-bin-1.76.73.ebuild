@@ -27,7 +27,6 @@ REQUIRED_USE="^^ ( libcups cups )"
 # DEPEND="gnome-base/gconf:2"
 RDEPEND="
 	${DEPEND}
-	dev-libs/libpthread-stubs
 	x11-libs/libxcb
 	x11-libs/libXcomposite
 	x11-libs/libXcursor
