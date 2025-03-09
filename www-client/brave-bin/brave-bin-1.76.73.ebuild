@@ -47,6 +47,7 @@ RDEPEND="
 	dev-libs/glib
 	dev-libs/nss
 	dev-libs/nspr
+	libcups? ( net-print/libcups )
 	cups? ( net-print/cups )
 	sys-apps/dbus
 	dev-libs/expat
@@ -115,16 +116,6 @@ src_install() (
 	# install-xattr doesnt approve using domenu or doins from FILESDIR
 		cp "${FILESDIR}"/${PN}.desktop "${S}"
 		domenu "${S}"/${PN}.desktop
-
-	# install libcups.so.2 if libcups USE flag is enabled.
-	if use libcups; then
-		if [[ ! -f /usr/lib64/libcups.so.2 ]]; then
-			insinto /usr/lib64/
-				dolib.so "${FILESDIR}/libcups.so.2"
-
-			dosym /usr/lib64/libcups.so.2 /usr/lib64/libcups.so
-		fi
-	fi
 )
 
 pkg_postinst() {
