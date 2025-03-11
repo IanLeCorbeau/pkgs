@@ -24,7 +24,7 @@ RDEPEND="
 	media-libs/fontconfig
 	x11-libs/libX11
 	x11-libs/libXft
-	x11-lib/libXrender
+	x11-libs/libXrender
 	~x11-terms/rt-terminfo-${PVR}
 "
 DEPEND="
