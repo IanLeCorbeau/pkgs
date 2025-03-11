@@ -31,9 +31,9 @@ src_prepare() {
 
 src_compile() {
 	if use xinerama; then
-		emake CC="$(tc-getCC)" raven
+		emake CC="$(tc-getCC)"
 	else
-		emake CC="$(tc-getCC)" XINERAMAFLAGS="" XINERAMALIBS="" raven
+		emake CC="$(tc-getCC)" XINERAMAFLAGS="" XINERAMALIBS=""
 	fi
 }
 
