@@ -8,6 +8,6 @@ inherit acct-user
 DESCRIPTION="user for the sysupdate command"
 ACCT_USER_ID=999
 ACCT_USER_GROUPS=( sysupdate )
-ACCT_USER_HOME="/var/sysupdate"
+ACCT_USER_HOME="/var/db/sysupdate"
 
 acct-user_add_deps
